@@ -124,11 +124,7 @@ const App = () => {
             onChange={(e) => setQuery(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && search()}
           />
-          <InputGroup.Append>
-            <Button onClick={search} variant="outline-info">
-              Search
-            </Button>
-          </InputGroup.Append>
+          
         </InputGroup>
       </Form>
 
