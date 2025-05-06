@@ -2,7 +2,7 @@
   "name": "music",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Spotiver.netlify.app",
+  "homepage": "https://raiden597.github.io/Spotiver-1",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "react": "^19.1.0",

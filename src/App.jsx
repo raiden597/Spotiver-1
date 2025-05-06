@@ -21,6 +21,23 @@ const useDebounce = (value, delay) => {
   return debouncedValue;
 };
 
+// Fetch Spotify token from Netlify Function
+const getSpotifyToken = async () => {
+  try {
+    const res = await fetch('/.netlify/functions/getSpotifyToken');
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || 'Failed to get Spotify token.');
+    }
+
+    return data.access_token;
+  } catch (err) {
+    console.error('Error fetching Spotify token:', err);
+    return null;
+  }
+};
+
 const App = () => {
   const [query, setQuery] = useState('');
   const [artist, setArtist] = useState(null);
@@ -28,9 +45,6 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const token = process.env.REACT_APP_SPOTIFY_TOKEN;
-
-  // Use debounced query to avoid frequent API calls while typing
   const debouncedQuery = useDebounce(query, 500);
 
   const search = async () => {
@@ -38,6 +52,13 @@ const App = () => {
 
     setLoading(true);
     setError('');
+
+    const token = await getSpotifyToken();
+    if (!token) {
+      setError('Failed to fetch Spotify token.');
+      setLoading(false);
+      return;
+    }
 
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     const FETCH_URL = `${BASE_URL}q=${encodeURIComponent(debouncedQuery)}&type=artist&limit=1`;
@@ -60,6 +81,7 @@ const App = () => {
         setError('No artist found matching your search.');
         setArtist(null);
         setTracks([]);
+        setLoading(false);
         return;
       }
 
@@ -75,7 +97,6 @@ const App = () => {
       }
 
       const tracksJson = await tracksRes.json();
-
       setTracks(tracksJson.tracks);
     } catch (err) {
       console.error(err);
@@ -85,7 +106,6 @@ const App = () => {
     }
   };
 
-  // Trigger search whenever debouncedQuery changes
   useEffect(() => {
     search();
   }, [debouncedQuery]);
