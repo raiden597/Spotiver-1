@@ -1,6 +1,7 @@
-const fetch = require('node-fetch');
+// getSpotifyToken.mjs
+import fetch from 'node-fetch';
 
-exports.handler = async function(event, context) {
+export async function handler(event, context) {
   const client_id = process.env.SPOTIFY_CLIENT_ID;
   const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 
@@ -26,4 +27,4 @@ exports.handler = async function(event, context) {
     statusCode: 200,
     body: JSON.stringify({ access_token: data.access_token }),
   };
-};
+}
