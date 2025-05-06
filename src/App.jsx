@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
-import { Form, InputGroup, Button, Spinner, Alert } from 'react-bootstrap';
+import { Form, InputGroup, Spinner, Alert } from 'react-bootstrap';
 import Profile from './Profile';
 import Gallery from './Gallery';
 
