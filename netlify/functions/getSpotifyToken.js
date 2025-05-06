@@ -1,7 +1,17 @@
-// getSpotifyToken.mjs
-import fetch from 'node-fetch';
+// Use dynamic import for node-fetch
+let fetch;
+let FormData;
+let Blob;
 
-export async function handler(event, context) {
+const loadDependencies = async () => {
+  fetch = (await import('node-fetch')).default;
+  FormData = (await import('formdata-polyfill')).FormData;
+  Blob = (await import('fetch-blob')).Blob;
+};
+
+exports.handler = async function(event, context) {
+  await loadDependencies(); // Ensure dependencies are loaded first
+  
   const client_id = process.env.SPOTIFY_CLIENT_ID;
   const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 
@@ -27,4 +37,4 @@ export async function handler(event, context) {
     statusCode: 200,
     body: JSON.stringify({ access_token: data.access_token }),
   };
-}
+};
