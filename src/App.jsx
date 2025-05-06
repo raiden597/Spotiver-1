@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import { Form, InputGroup, Button, Spinner, Alert } from 'react-bootstrap';
 import Profile from './Profile';
@@ -47,7 +47,8 @@ const App = () => {
 
   const debouncedQuery = useDebounce(query, 500);
 
-  const search = async () => {
+  // Memoize the search function using useCallback
+  const search = useCallback(async () => {
     if (!debouncedQuery) return;
 
     setLoading(true);
@@ -104,11 +105,11 @@ const App = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [debouncedQuery]); // Now search will only update when debouncedQuery changes
 
   useEffect(() => {
     search();
-  }, [debouncedQuery]);
+  }, [debouncedQuery, search]);
 
   return (
     <div className="App">
