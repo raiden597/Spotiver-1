@@ -39,6 +39,12 @@ body {
   justify-content: center;
   padding: 50px 0;
   flex-wrap: wrap;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .profile-img {
@@ -72,7 +78,6 @@ body {
   justify-content: center;
 }
 
-
 /* Gallery */
 .track {
   display: inline-flex;
@@ -88,7 +93,8 @@ body {
 
 .track:hover {
   transform: scale(1.05);
-  opacity: 0.8;
+  opacity: 0.9;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
 .track-img {
@@ -101,14 +107,16 @@ body {
 }
 
 .track-text {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
-  width: 100%;
-  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
   position: absolute;
   bottom: 0;
-  padding: 3px 0;
-  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  border-top: 2px solid #fff;
 }
 
 .track-play {
@@ -138,11 +146,10 @@ body {
   opacity: 1;
 }
 
-/* MOBILE OPTIMIZATION ONLY */
-
+/* Mobile Optimization */
 @media (max-width: 600px) {
   .App-t {
-    font-size: 50px;
+    font-size: 45px;
   }
 
   .profile {
@@ -193,4 +200,11 @@ body {
     height: 50px;
     font-size: 20px;
   }
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #ff6f61;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }
