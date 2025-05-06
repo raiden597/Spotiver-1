@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Spotiver-1/static/css/main.9259cb76.css",
-    "main.js": "/Spotiver-1/static/js/main.efc3cbdf.js",
+    "main.js": "/Spotiver-1/static/js/main.e8003162.js",
     "index.html": "/Spotiver-1/index.html",
     "main.9259cb76.css.map": "/Spotiver-1/static/css/main.9259cb76.css.map",
-    "main.efc3cbdf.js.map": "/Spotiver-1/static/js/main.efc3cbdf.js.map"
+    "main.e8003162.js.map": "/Spotiver-1/static/js/main.e8003162.js.map"
   },
   "entrypoints": [
     "static/css/main.9259cb76.css",
-    "static/js/main.efc3cbdf.js"
+    "static/js/main.e8003162.js"
   ]
 }
