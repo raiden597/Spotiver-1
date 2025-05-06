@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Spotiver-1/static/css/main.27f629f5.css",
+    "main.js": "/Spotiver-1/static/js/main.5fad1e7a.js",
+    "index.html": "/Spotiver-1/index.html",
+    "main.27f629f5.css.map": "/Spotiver-1/static/css/main.27f629f5.css.map",
+    "main.5fad1e7a.js.map": "/Spotiver-1/static/js/main.5fad1e7a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27f629f5.css",
+    "static/js/main.5fad1e7a.js"
+  ]
+}
