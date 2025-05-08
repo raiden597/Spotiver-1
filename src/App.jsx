@@ -115,16 +115,19 @@ const App = () => {
     <div className="App">
       <h1 className="App-t">Spotiver</h1>
 
-      <Form>
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();  // Prevents reload on Enter
+          search();
+        }}
+      >
         <InputGroup>
           <Form.Control
             type="text"
             placeholder="Search for an Artist..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && search()}
           />
-          
         </InputGroup>
       </Form>
 
