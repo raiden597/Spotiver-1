@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hanalei&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
 
 body {
   background: #000;
@@ -16,11 +16,16 @@ body {
   padding: 5%;
 }
 
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff; }
+  20%, 22%, 24%, 55% { opacity: 0.4; text-shadow: none; }
+}
+
 .App-t {
-  font-family: "Hanalei", system-ui;
+  font-family: "Nunito", sans-serif;
   font-size: 100px;
   padding-bottom: 40px;
-  animation: fade-slide 0.5s ease;
+  animation: rainbow 8s ease infinite, flicker 3s infinite alternate, fade-slide 0.5s ease;
 }
 
 @keyframes fade-slide {
